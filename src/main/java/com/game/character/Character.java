@@ -1,14 +1,18 @@
 package main.java.com.game.character;
 
+import main.java.com.game.item.Item;
+
 public class Character {
     private String name;
     private int health;
     private Inventory inventory;
+    private Double encumbrance;
 
     public Character(String name, int InitialHealth) {
         this.name = name;
         this.inventory = new Inventory();
         this.health =  InitialHealth;
+        this.encumbrance = 0.0;
     }
 
     public void setName(String name) {
@@ -54,12 +58,18 @@ public class Character {
         }
     }
 
+    public void addItemToInventory(Item item){
+        inventory.addItem(item);
+        encumbrance += item.getWeight();
+    }
+
     @Override
     public String toString() {
-        return "main.java.com.game.character.Character{" +
+        return "Character{" +
                 "name='" + name + '\'' +
                 ", health=" + health +
                 ", inventory=" + inventory +
+                ", encumbrance=" + encumbrance +
                 '}';
     }
 }
