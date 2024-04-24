@@ -23,7 +23,7 @@ public class Main {
 
         System.out.println("Name: "+ character.getName() + " Health: " + character.getHealth() + "/100");
         printLine();
-        printAnimatedText(ITALIC_ON + "Where am I?" + ITALIC_OFF, 175); // Using ANSI codes for italics
+        printAnimatedText("Where am I?", 175, 0); // Using ANSI codes for italics
     }
 
     /*Helper function for UI in Terminal*/
@@ -32,12 +32,21 @@ public class Main {
     }
 
     /*Function to print text with animation*/
-    public static void printAnimatedText(String text, int delay) throws InterruptedException {
-        for (char c : text.toCharArray()) { // Iterate over each character in the text
-            System.out.print(c); // Print the character without a newline
-            Thread.sleep(delay); // Pause for the specified delay
+    /*If option is 0 text is also italic*/
+    public static void printAnimatedText(String text, int delay, int option) throws InterruptedException {
+        if(option == 0){
+            for (char c : text.toCharArray()) { // Iterate over each character in the text
+                System.out.print(ITALIC_ON + c  + ITALIC_OFF); // Print the italic character without a newline
+                Thread.sleep(delay); // Pause for the specified delay
             }
-        System.out.println(); // Move to the next line after printing the entire text
+        }else{
+            for (char c : text.toCharArray()) { // Iterate over each character in the text
+                System.out.print(c); // Print the character without a newline
+                Thread.sleep(delay); // Pause for the specified delay
+            }
         }
+        System.out.println();// Move to the next line after printing the entire text
+    }
+
 
 }
