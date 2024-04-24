@@ -2,6 +2,8 @@ package main.java.com.game.ui;
 
 import main.java.com.game.character.Character;
 
+import java.util.List;
+
 //This class is used for UI text output
 public class TextPrinter {
     // ANSI escape code to start italicized text
@@ -44,5 +46,12 @@ public class TextPrinter {
             Thread.sleep(delay); // Pause for the specified delay
         }
         System.out.println(); // Move to the next line
+    }
+
+    //method to print a list of options for selection
+    public static void printOptions(List<String> options) {
+        for (int i = 0; i < options.size(); i++) {
+            System.out.println(GREEN + (i + 1) + ". " + options.get(i) + ANSI_OFF); // Print with indices
+        }
     }
 }
