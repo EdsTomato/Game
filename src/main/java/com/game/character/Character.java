@@ -6,7 +6,7 @@ public class Character {
     private String name;
     private int health;
     private Inventory inventory;
-    private Double encumbrance;
+    private Double encumbrance; // collective weight of items in inventory
 
     public Character(String name, int InitialHealth) {
         this.name = name;
@@ -38,6 +38,7 @@ public class Character {
         return health > 0;
     }
 
+    /*reduce health based on dmg*/
     public void takeDamage(int dmg){
         if (dmg < 0){
             throw new IllegalArgumentException("Dmg can not be negative");
@@ -47,7 +48,7 @@ public class Character {
             health = 0;
         }
     }
-
+    /*add health based on amount*/
     public void heal(int amount){
         if (amount < 0) {
             throw new IllegalArgumentException("Healing amount cannot be negative");
@@ -58,6 +59,7 @@ public class Character {
         }
     }
 
+    /*add specific item to inventory and modify encumbrance according to weight of item*/
     public void addItemToInventory(Item item){
         inventory.addItem(item);
         encumbrance += item.getWeight();
