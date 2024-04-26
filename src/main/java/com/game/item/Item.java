@@ -18,6 +18,7 @@ public class Item {
         return weight;
     }
 
+
     @Override
     public String toString() {
         return "main.java.com.game.item.Item{" +

@@ -1,6 +1,7 @@
 package main.java.com.game.ui;
 
 import main.java.com.game.character.Character;
+import main.java.com.game.item.Item;
 
 import java.util.List;
 
@@ -53,5 +54,18 @@ public class TextPrinter {
         for (int i = 0; i < options.size(); i++) {
             System.out.println(GREEN + (i + 1) + ". " + options.get(i) + ANSI_OFF); // Print with indices
         }
+    }
+
+    // Method to print inventory
+    public static void printInventory(List<Item> items) {
+        System.out.println(GREEN + "Your inventory:");
+        if (items.isEmpty()) {
+            System.out.println("It's empty!");
+        } else {
+            for (Item item : items) {
+                System.out.println("- " + item.getName() + " (Weight: " + item.getWeight() + ")");
+            }
+        }
+        System.out.println(ANSI_OFF);
     }
 }

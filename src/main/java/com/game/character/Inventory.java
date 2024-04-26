@@ -25,9 +25,19 @@ public class Inventory {
         return items;
     }
 
+    // Method to check if an item exists by name
+    public boolean hasItem(String itemName) {
+        for (Item item : items) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                return true; // Item is in the inventory
+            }
+        }
+        return false; // Item not found in the inventory
+    }
+
     @Override
     public String toString() {
-        return "main.java.com.game.character.Inventory{" +
+        return "Inventory{" +
                 "items=" + items +
                 '}';
     }
