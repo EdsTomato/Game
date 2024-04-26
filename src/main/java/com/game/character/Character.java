@@ -65,6 +65,11 @@ public class Character {
         encumbrance += item.getWeight();
     }
 
+    public void removeItemFromInventory(Item item){
+        inventory.removeItem(item);
+        encumbrance -= item.getWeight();
+    }
+
     @Override
     public String toString() {
         return "Character{" +

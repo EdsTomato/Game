@@ -35,6 +35,7 @@ public class Main {
         System.out.print("Action to be performed (1 or 2): ");
         int choice = scan.nextInt();
         // Use a switch statement to handle the player's choice
+        Item metalPipe = new Item("Metal Pipe", 3.0);
         switch (choice) {
             case 1:
                 TextPrinter.printNarratorText("You walk toward the light.", 100);
@@ -52,7 +53,6 @@ public class Main {
                 switch (choice) {
                     case 1:
                         TextPrinter.printNarratorText("You pick up the pipe", 100);
-                        Item metalPipe = new Item("Metal Pipe", 3.0);
                         character.addItemToInventory(metalPipe);
                         TextPrinter.printInventory(character.getInventory().getItems());
                         break;
@@ -122,8 +122,10 @@ public class Main {
                         TextPrinter.printNarratorText("You decide the high schooler is the easiest target.", 100);
                         TextPrinter.printNarratorText("The high schooler turns out to be the national Judo champion in his weight class and puts up a good fight.", 100);
                         if (character.getInventory().hasItem("Metal Pipe")) {
-                            TextPrinter.printNarratorText("You are lucky you had the pipe with you.", 100);
-                            TextPrinter.printNarratorText("With the school uniform on you decide to make you way home.", 100);
+                            TextPrinter.printNarratorText("You are lucky you had the pipe with you, but it's broken now", 100);
+                            character.removeItemFromInventory(metalPipe);
+                            TextPrinter.printInventory(character.getInventory().getItems());
+                            TextPrinter.printNarratorText("With the school uniform on your decide to make you way home.", 100);
                         } else {
                             TextPrinter.printNarratorText("The high schooler beats the shit out of you.", 100);
                             character.takeDamage(10);
