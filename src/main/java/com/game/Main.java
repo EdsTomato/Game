@@ -101,6 +101,9 @@ public class Main {
         switch (choice) {
             case 1:
                 TextPrinter.printNarratorText("You start walking home.", 100);
+                TextPrinter.printNarratorText("As you make your way home some people start running away from you, some laugh and one calls the police.", 100);
+                TextPrinter.printNarratorText("The officer arrives and you explain that you woke up in an alley and are tying to get home.", 100);
+                TextPrinter.printNarratorText("The officer turns out to be a nice guy and gives you a ride home.", 100);
                 break;
             case 2:
                 TextPrinter.printNarratorText("You decide to get clothes first.", 100);
